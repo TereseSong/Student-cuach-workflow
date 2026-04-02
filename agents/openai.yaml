@@ -1,0 +1,7 @@
+interface:
+  display_name: "通用学员教练助手"
+  short_description: "先检索 knowledge-base 与项目资料，本地未覆盖再补外部来源，然后输出口语化、带证据的教练点评、答疑或知识检索结果。"
+  default_prompt: "Use $student-coach-workflow to search the local knowledge-base and project files first, then produce a conversational, evidence-backed coaching comment, answer, or project-knowledge summary for training camps, cohorts, or paid learning communities. If local coverage is insufficient, use the configured external source priority."
+
+policy:
+  allow_implicit_invocation: true
