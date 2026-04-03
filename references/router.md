@@ -111,3 +111,28 @@
 读取：
 
 - `knowledge-ingestion.md`
+
+## 模式 7：共识问题提炼
+
+触发信号：
+
+- 用户要求“提炼共识问题”“总结大家的共同问题”“给圈友发统一建议”
+- 已经连续点评了多条学员日志，用户希望做群发提醒或阶段复盘
+- 点评结束后，用户确认要把最近日志里的重复问题抽成共识
+
+执行：
+
+1. 回看最近已点评日志或已沉淀案例
+2. 提取重复出现的卡点、误区、动作缺口、风险点
+3. 输出“共识问题 + 统一建议”版本
+4. 完成去 AI 味复检
+5. 将最终版本写入 `knowledge-base/02-答疑案例/`
+
+读取：
+
+- `knowledge-base-search.md`
+- `coaching-template.md`
+- `review-checklist.md`
+- `coach-voice.md`
+- `self-evolution.md`
+- `consensus-extraction.md`
