@@ -52,6 +52,7 @@ description: Build and use a local-knowledge-first coaching workflow for trainin
 - 学员日志模板或提交流程优化：读 `references/student-log-template.md`、`references/review-checklist.md`
 - 知识入库或资料整理：读 `references/knowledge-ingestion.md`
 - 共识问题提炼：读 `references/router.md`、`references/knowledge-base-search.md`、`references/coaching-template.md`、`references/review-checklist.md`、`references/coach-voice.md`、`references/self-evolution.md`、`references/consensus-extraction.md`
+- 自我进化接入或工作流迭代：读 `references/self-improvement-integration.md`，再按需要补读 `references/self-evolution.md`、`references/coach-voice.md`、`references/coaching-template.md`、`references/review-checklist.md`
 - 维护或升级本 skill：先审阅 `SKILL.md` 与已有关联引用文件，再只补缺失部分
 
 ## 执行契约
@@ -61,13 +62,15 @@ description: Build and use a local-knowledge-first coaching workflow for trainin
 3. 学员日志默认提取三类信号：`【待解答】`、`【待延伸】`、`【待确认】`。
 4. 输出必须优先回答学员显式问题，再补动作建议和风险提醒。
 5. 每个关键判断尽量附 `<知识库参考>...</知识库参考>`，引用真实文件名、标题或稳定定位。
-6. 如果本地资料未覆盖，必须先按“项目指定来源 -> 官方资料 -> 高质量外部来源”的顺序补检索，再输出结论；仍未覆盖时才给低置信度的通用建议。
-7. 默认输出中文。处理学员行动日志时，默认一次生成 `2` 版教练点评，方便教练挑选；每版控制在 `180-320` 字，风格应像群内教练语音转文字，口语化、直接、能落地。
-8. 点评生成后，必须再过一遍 `references/review-checklist.md`，避免漏答问题、建议太虚或鼓励太空。
-9. 点评口气默认参考 `references/coach-voice.md`，优先学习“先纠偏、再给动作、保留判断感”的说话方式，不要写成中性 AI 总结。
-10. 点评、答疑、群发共识提醒在最终输出前，必须执行一次“去 AI 味复检”，优先按 `references/coaching-template.md` 的“去 AI 味硬规则”和 `references/review-checklist.md` 的“风格检查 / 禁词检查”删改。
-11. 每次输出最终采用的答复后，必须把本次任务的关键信息和最终答复沉淀到 `knowledge-base/02-答疑案例/`，并按 `references/self-evolution.md` 提炼一条可复用规则，作为下次同类任务的优先参考。
-12. 每次完成学员日志点评后，默认补一句简短确认，询问用户是否要基于最近几条日志继续提炼“圈友共识问题和统一建议”。
+6. `知识库参考`、`外部参考` 必须独立分行输出，不能和正文写在同一段里。
+7. 如果本地资料未覆盖，必须先按“项目指定来源 -> 官方资料 -> 高质量外部来源”的顺序补检索，再输出结论；仍未覆盖时才给低置信度的通用建议。
+8. 默认输出中文。处理学员行动日志时，默认一次生成 `2` 版教练点评，方便教练挑选；每版控制在 `180-320` 字，风格应像群内教练语音转文字，口语化、直接、能落地。
+9. 点评生成后，必须再过一遍 `references/review-checklist.md`，避免漏答问题、建议太虚或鼓励太空。
+10. 点评口气默认参考 `references/coach-voice.md`，优先学习“先纠偏、再给动作、保留判断感”的说话方式，不要写成中性 AI 总结。
+11. 点评、答疑、群发共识提醒在最终输出前，必须执行一次“去 AI 味复检”，优先按 `references/coaching-template.md` 的“去 AI 味硬规则”和 `references/review-checklist.md` 的“风格检查 / 禁词检查”删改。
+12. 每次输出最终采用的答复后，必须把本次任务的关键信息和最终答复沉淀到 `knowledge-base/02-答疑案例/`，并按 `references/self-evolution.md` 提炼一条可复用规则，作为下次同类任务的优先参考。
+13. 每次完成学员日志点评后，默认补一句简短确认，询问用户是否要基于最近几条日志继续提炼“圈友共识问题和统一建议”。
+14. 涉及工作流升级、自我进化、风格修正时，默认按 `references/self-improvement-integration.md` 的最小接入方案执行，只允许轻量沉淀，不默认进入重自动化。
 
 ## 本地知识优先级
 
@@ -123,10 +126,12 @@ description: Build and use a local-knowledge-first coaching workflow for trainin
 5. 用 `references/coaching-template.md` 生成最终点评。默认一次产出两版：
    - `A版`：更直接，像教练当场拍板，短、准、少安慰
    - `B版`：更陪跑，先接情绪，再给动作，但不许变鸡汤
+   - 引用排版：正文一段，空一行，再单独一行输出 `<知识库参考>...</知识库参考>` 或 `<外部参考>...</外部参考>`
 6. 用 `references/review-checklist.md` 做一次质检，重点检查：有没有答到问题、有没有给到明天能执行的动作、有没有空泛鼓励。
 7. 用 `references/self-evolution.md` 做收尾：去 AI 味复检、落库最终答复、补一条迭代规则。
 8. 结束前补一句确认：是否需要继续提炼最近几条日志里的共识问题和统一建议。
 9. 若用户要“先查项目知识，再回答我”，先输出检索结论，再决定是否进入点评阶段。
+10. 若用户要求“优化 workflow / 自我进化 / 从这次经验里学习”，先完成当前任务，再按 `references/self-improvement-integration.md` 判断是否新增 1 条规则，以及是否只更新 1 个引用文件。
 
 ## 项目知识检索要求
 

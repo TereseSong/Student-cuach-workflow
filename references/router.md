@@ -77,6 +77,27 @@
 - `SKILL.md`
 - 当前被改动的引用文件
 
+## 模式 4A：自我进化接入
+
+触发信号：
+
+- 用户要求“自我进化”“从这次经验里学习”“把这次反馈写进 workflow”
+- 用户要求把某次点评中的新规则沉淀进工作流
+- 用户明确提到 `self-improving-agent`
+
+执行：
+
+1. 先完成当前任务，不打断主链路
+2. 再读 `references/self-improvement-integration.md`
+3. 只记录案例、提炼 1 条规则、最多更新 1 个引用文件
+4. 不默认开启全局 hooks，不默认做重自动化
+
+读取：
+
+- `references/self-improvement-integration.md`
+- 按需补读 `references/self-evolution.md`
+- 按需补读当前要修改的引用文件
+
 ## 模式 5：学员日志模板优化
 
 触发信号：
