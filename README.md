@@ -9,6 +9,88 @@
 - 正文优先像教练本人在群里回复，不写成资料转述
 - 每次任务结束后，默认把最终采用答复沉淀进案例库，方便下次复用
 
+## Codex 安装和接入
+
+如果你是第一次接触 agent，推荐先在 Codex 跑通这套 workflow，再考虑 Claude Code。
+
+最简单的完整路径只有 4 步：
+
+1. 安装 Codex
+2. 把这个 skill 放进 `~/.codex/skills/`
+3. 登录并启动 Codex
+4. 直接在对话里触发这个 skill
+
+### 第 1 步：安装 Codex
+
+```bash
+npm install -g @openai/codex
+```
+
+### 第 2 步：安装这个 skill
+
+Codex 的 skill 本质上就是本地 `~/.codex/skills/` 目录下的一套文件。
+
+最简单装法：
+
+```bash
+mkdir -p ~/.codex/skills
+cd ~/.codex/skills
+git clone https://github.com/TereseSong/Student-cuach-workflow.git student-coach-workflow
+```
+
+装好后，目录应该长这样：
+
+```text
+~/.codex/skills/student-coach-workflow/
+```
+
+至少要有这些文件和目录：
+
+- `SKILL.md`
+- `README.md`
+- `references/`
+- `knowledge-base/`
+
+### 第 3 步：登录并启动 Codex
+
+最简单登录方式：
+
+```bash
+codex --login
+```
+
+如果你已经有 OpenAI API key，也可以直接配置：
+
+```bash
+export OPENAI_API_KEY="YOUR_KEY"
+```
+
+启动：
+
+```bash
+codex
+```
+
+### 第 4 步：在 Codex 里触发这个 skill
+
+进入 Codex 后，直接说：
+
+```text
+用 student-coach-workflow 点评这条学员日志
+```
+
+你也可以这样触发：
+
+- `先查 knowledge-base，再回答这个问题`
+- `帮我提炼最近几条日志的共识问题`
+- `帮我把这批资料整理进 knowledge-base`
+
+### 如果你主要用 Claude Code
+
+Claude Code 的安装和接入我已经单独拆到这个文件：
+
+- [README-CLAUDE-CODE.md](/Users/teresasong/.codex/skills/student-coach-workflow/README-CLAUDE-CODE.md)
+
 ## 这个 skill 能做什么
 
 支持这几类常见任务：
